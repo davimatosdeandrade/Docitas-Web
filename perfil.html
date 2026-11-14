@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Perfil e Gestão de Produtos Docitas.">
+  <title>Docitas | Painel & Perfil</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-container">
+
+      <a href="index.html" class="logo-area" aria-label="Página Inicial Docitas">
+        <div class="logo-badge">D</div>
+        <div class="logo-text">DOCI<span>TAS</span></div>
+      </a>
+
+      <div class="header-actions">
+        <a href="perfil.html" class="action-btn" title="Meu Perfil" aria-label="Acessar conta" style="color: var(--color-raspberry);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </a>
+
+        <a href="carrinho.html" class="action-btn cart-btn" title="Sacola de Compras" aria-label="Carrinho">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="cart-count" id="cart-count">0</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="page-main">
+    <div class="container">
+
+      <div class="profile-card">
+        <div class="profile-info">
+          <div class="profile-avatar" id="user-avatar">U</div>
+          <div>
+            <h1 class="profile-name" id="user-email">email@dominio.com</h1>
+            <span class="profile-badge badge-cliente" id="user-badge">Cliente</span>
+          </div>
+        </div>
+
+        <div class="profile-actions">
+          <a href="index.html" class="btn-secondary">Voltar para a Loja</a>
+          <button type="button" class="btn-danger" onclick="fazerLogout()">Sair da Conta</button>
+        </div>
+      </div>
+
+      <section id="secao-cliente" style="display: none;">
+        <div class="admin-card">
+          <h2 class="admin-card-title">Minha Sacola de Compras</h2>
+          <p style="margin-bottom: 20px; font-size: 15px; color: #4A2E24;">
+            Acesse seus itens selecionados para revisar as quantidades ou continue explorando nossos doces artesanais.
+          </p>
+          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+            <a href="carrinho.html" class="btn-secondary">Minhas Sacolas de Compra</a>
+            <a href="index.html" class="btn-primary">Ver Todos os Doces</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="secao-admin" style="display: none;">
+        <div class="admin-grid">
+
+          <div class="admin-card">
+            <h2 class="admin-card-title">Cadastrar Novo Doce</h2>
+            
+            <form id="form-novo-produto" onsubmit="cadastrarProduto(event)">
+              <div class="form-group">
+                <label for="prod-nome">Nome do Doce</label>
+                <input type="text" id="prod-nome" class="form-control" placeholder="Ex: Brigadeiro Crocante" required>
+              </div>
+
+              <div class="form-group">
+                <label for="prod-preco">Preço (R$)</label>
+                <input type="number" id="prod-preco" step="0.01" min="0.10" class="form-control" placeholder="Ex: 8.50" required>
+              </div>
+
+              <div class="form-group">
+                <label for="prod-destaque">Selo / Destaque</label>
+                <select id="prod-destaque" class="form-control" required>
+                  <option value="Mais pedido">Mais pedido</option>
+                  <option value="Novidade">Novidade</option>
+                  <option value="Especial">Especial</option>
+                  <option value="Favorito">Favorito</option>
+                  <option value="Artesanal">Artesanal</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="prod-cor">Cor de Fundo do Card</label>
+                <select id="prod-cor" class="form-control" required>
+                  <option value="#E9A98B">Pêssego Quente (#E9A98B)</option>
+                  <option value="#6FB59A">Menta Doce (#6FB59A)</option>
+                  <option value="#E58A7E">Coral Frutas (#E58A7E)</option>
+                  <option value="#D81B4F">Framboesa Nobre (#D81B4F)</option>
+                  <option value="#6B3F2A">Caramelo (#6B3F2A)</option>
+                  <option value="#7A4FA0">Roxo Amora (#7A4FA0)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="prod-arquivo">Imagem do Doce (Arquivo)</label>
+                <input type="file" id="prod-arquivo" class="form-control" accept="image/*" required>
+              </div>
+
+              <div class="form-group">
+                <label for="prod-desc">Descrição do Doce</label>
+                <textarea id="prod-desc" class="form-control" placeholder="Conte os ingredientes e diferenciais do doce..." required></textarea>
+              </div>
+
+              <button type="submit" class="btn-primary btn-full">Salvar Doce</button>
+            </form>
+          </div>
+
+          <div class="admin-card">
+            <h2 class="admin-card-title">Doces Cadastrados</h2>
+            
+            <div class="table-responsive">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>Foto</th>
+                    <th>Nome</th>
+                    <th>Preço</th>
+                    <th>Selo</th>
+                    <th>Cor</th>
+                    <th>Ação</th>
+                  </tr>
+                </thead>
+                <tbody id="tabela-produtos-corpo">
+                  
+                </tbody>
+              </table>
+            </div>
+
+            <p id="tabela-vazia-aviso" style="display: none; text-align: center; padding: 24px 0; color: #665b57;">
+              Nenhum doce cadastrado no momento.
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Docitas Gourmet</h4>
+          <p>Painel de Gestão e Acesso Exclusivo Docitas.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navegação</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Página Inicial</a></li>
+            <li><a href="carrinho.html">Meu Carrinho</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Acesso</h4>
+          <ul class="footer-links">
+            <li><a href="perfil.html">Meu Perfil</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Docitas</h4>
+          <p>Receitas tradicionais feitas com amor e dedicação.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/perfil.js"></script>
+</body>
+</html>

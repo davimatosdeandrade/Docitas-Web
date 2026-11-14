@@ -1,0 +1,128 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Acesse ou crie sua conta na Docitas Confeitaria.">
+  <title>Docitas | Entrar ou Cadastrar</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-container">
+
+      <a href="index.html" class="logo-area" aria-label="Página Inicial Docitas">
+        <div class="logo-badge">D</div>
+        <div class="logo-text">DOCI<span>TAS</span></div>
+      </a>
+
+      <div class="header-actions">
+        <a href="login.html" class="action-btn" title="Minha Conta" aria-label="Acessar conta" style="color: var(--color-raspberry);">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </a>
+
+        <a href="carrinho.html" class="action-btn cart-btn" title="Sacola de Compras" aria-label="Carrinho">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="cart-count" id="cart-count">0</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="page-main">
+    <div class="container">
+      
+      <div class="auth-wrapper">
+        
+        <div class="auth-header">
+          <h1 class="auth-title">Acesse a Docitas</h1>
+          <p class="auth-subtitle">Entre na sua conta ou cadastre-se para aproveitar nossos doces</p>
+        </div>
+
+        <div class="auth-tabs">
+          <button type="button" class="auth-tab-btn active" id="tab-btn-login" onclick="alternarAba('login')">
+            Entrar
+          </button>
+          <button type="button" class="auth-tab-btn" id="tab-btn-cadastro" onclick="alternarAba('cadastro')">
+            Criar Conta
+          </button>
+        </div>
+
+        <form id="form-login" onsubmit="realizarLogin(event)">
+          <div class="form-group">
+            <label for="login-email">E-mail</label>
+            <input type="email" id="login-email" class="form-control" placeholder="seu-email@dominio.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="login-senha">Senha</label>
+            <input type="password" id="login-senha" class="form-control" placeholder="Sua senha secreta" required>
+          </div>
+
+          <button type="submit" class="btn-primary btn-full">Entrar na Plataforma</button>
+        </form>
+
+        <form id="form-cadastro" style="display: none;" onsubmit="realizarCadastro(event)">
+          <div class="form-group">
+            <label for="cad-email">E-mail</label>
+            <input type="email" id="cad-email" class="form-control" placeholder="seu-email@dominio.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="cad-senha">Senha</label>
+            <input type="password" id="cad-senha" class="form-control" placeholder="Crie sua senha segura" required>
+          </div>
+
+          <button type="submit" class="btn-primary btn-full">Criar Minha Conta</button>
+        </form>
+
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div class="footer-col">
+          <h4>Docitas Gourmet</h4>
+          <p>Doces artesanais pensados para encantar seus sentidos e colorir seus dias com mais carinho.</p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navegação</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Página Inicial</a></li>
+            <li><a href="carrinho.html">Meu Carrinho</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Acesso</h4>
+          <ul class="footer-links">
+            <li><a href="login.html">Minha Conta</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Docitas</h4>
+          <p>Feito com amor, açúcar e receitas tradicionais.</p>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/login.js"></script>
+</body>
+</html>

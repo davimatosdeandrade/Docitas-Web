@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="120" height="120">
+  <rect width="120" height="120" rx="18" fill="#F1EBD8"/>
+  <circle cx="60" cy="60" r="38" fill="#E9A98B"/>
+  <circle cx="60" cy="60" r="28" fill="#D81B4F"/>
+  <text x="60" y="68" font-family="'Segoe UI', sans-serif" font-size="24" font-weight="bold" fill="#F1EBD8" text-anchor="middle">🍬</text>
+</svg>

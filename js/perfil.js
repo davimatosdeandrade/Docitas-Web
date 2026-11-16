@@ -49,6 +49,11 @@ function atualizarContadorCarrinho() {
   let contador = document.getElementById("cart-count");
   if (!contador) return;
 
+  if (usuarioAtivo.tipo === "admin") {
+    contador.innerText = "0";
+    return;
+  }
+
   let chaveCarrinho = "docitas_carrinho_" + usuarioAtivo.id;
   let dadosCarrinho = localStorage.getItem(chaveCarrinho);
   let total = 0;
@@ -104,14 +109,14 @@ function carregarTabelaProdutos() {
   for (let i = 0; i < produtos.length; i++) {
     let p = produtos[i];
     let precoFormatado = Number(p.preco).toFixed(2).replace(".", ",");
-    let imagemSrc = p.imagem || "img/doces/padrao.svg";
+    let imagemSrc = p.imagem;
 
     corpoTabela.innerHTML += `
       <tr>
         <td>
           <img src="${imagemSrc}" alt="${p.nome}" class="table-img">
         </td>
-        <td><strong>${p.nome}</strong></td>
+        <td title="${p.nome}"><strong>${p.nome}</strong></td>
         <td>R$ ${precoFormatado}</td>
         <td><span class="badge-tag" style="position: static;">${p.destaque}</span></td>
         <td>
@@ -119,7 +124,7 @@ function carregarTabelaProdutos() {
           <code>${p.cor}</code>
         </td>
         <td>
-          <button type="button" class="btn-danger" onclick="excluirProduto(${p.id})">Excluir</button>
+          <button type="button" class="btn-danger btn-sm" onclick="excluirProduto(${p.id})">Excluir</button>
         </td>
       </tr>
     `;
@@ -129,21 +134,12 @@ function carregarTabelaProdutos() {
 function cadastrarProduto(event) {
   event.preventDefault();
 
-  let inputArquivo = document.getElementById("prod-arquivo");
-  let arquivo = inputArquivo.files[0];
-
-  if (!arquivo) {
-    alert("Por favor, selecione um arquivo de imagem!");
-    return;
-  }
-
   let nome = document.getElementById("prod-nome").value.trim();
   let preco = parseFloat(document.getElementById("prod-preco").value);
   let destaque = document.getElementById("prod-destaque").value;
   let cor = document.getElementById("prod-cor").value;
+  let imagem = document.getElementById("prod-imagem").value.trim();
   let descricao = document.getElementById("prod-desc").value.trim();
-
-  let caminhoImagem = "img/doces/" + arquivo.name;
 
   let dados = localStorage.getItem(CHAVE_PRODUTOS);
   let produtos = dados ? JSON.parse(dados) : [];
@@ -154,14 +150,12 @@ function cadastrarProduto(event) {
     preco: preco,
     destaque: destaque,
     cor: cor,
-    imagem: caminhoImagem,
+    imagem: imagem,
     descricao: descricao
   };
 
   produtos.push(novoProduto);
   localStorage.setItem(CHAVE_PRODUTOS, JSON.stringify(produtos));
-
-  alert("Doce '" + nome + "' cadastrado com sucesso!");
 
   document.getElementById("form-novo-produto").reset();
   carregarTabelaProdutos();
@@ -185,14 +179,11 @@ function excluirProduto(idProduto) {
   }
 
   localStorage.setItem(CHAVE_PRODUTOS, JSON.stringify(produtos));
-  alert("Doce removido com sucesso!");
-
   carregarTabelaProdutos();
 }
 
 function fazerLogout() {
   localStorage.removeItem("docitas_usuario_logado");
-  alert("Você saiu da conta.");
   window.location.href = "login.html";
 }
 

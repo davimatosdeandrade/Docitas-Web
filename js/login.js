@@ -39,7 +39,6 @@ function realizarLogin(event) {
     };
 
     localStorage.setItem("docitas_usuario_logado", JSON.stringify(admin));
-    alert("Login de Administrador realizado com sucesso!");
     window.location.href = "perfil.html";
     return;
   }
@@ -63,8 +62,7 @@ function realizarLogin(event) {
     };
 
     localStorage.setItem("docitas_usuario_logado", JSON.stringify(sessao));
-    alert("Login realizado com sucesso!");
-    window.location.href = "perfil.html";
+    window.location.href = "index.html";
   } else {
     alert("E-mail ou senha inválidos! Verifique os dados ou crie uma conta.");
   }
@@ -108,7 +106,5 @@ function realizarCadastro(event) {
     tipo: "cliente"
   };
   localStorage.setItem("docitas_usuario_logado", JSON.stringify(sessao));
-
-  alert("Conta criada com sucesso!");
-  window.location.href = "perfil.html";
+  window.location.href = "index.html";
 }

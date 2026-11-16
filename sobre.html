@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Conheça a história da Docitas Confeitaria Artesanal e nossos valores.">
+  <title>Docitas | Sobre Nós</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container header-container">
+
+      <a href="index.html" class="logo-area" aria-label="Página Inicial Docitas">
+        <img src="imagens/logo.png" alt="Docitas Logo" class="logo-img">
+        <div class="logo-text">DOCI<span>TAS</span></div>
+      </a>
+
+      <div class="header-actions">
+        <a href="perfil.html" class="action-btn" title="Minha Conta" aria-label="Acessar conta">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </a>
+
+        <a href="carrinho.html" class="action-btn cart-btn" title="Sacola de Compras" aria-label="Carrinho">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <path d="M16 10a4 4 0 0 1-8 0"></path>
+          </svg>
+          <span class="cart-count" id="cart-count">0</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="page-main">
+    <div class="container">
+
+      <div class="page-title-box">
+        <h1 class="page-title">Sobre a Docitas</h1>
+        <p class="page-subtitle">Conheça a história e a paixão por trás de cada uma das nossas receitas</p>
+      </div>
+
+      <div class="cart-items-card" style="margin-bottom: 24px;">
+        <h2 style="font-family: var(--font-heading); color: var(--color-chocolate-dark); font-size: 24px; margin-bottom: 14px;">Nossa História</h2>
+        <p style="font-size: 15px; color: #5a4b45; line-height: 1.7; margin-bottom: 14px;">
+          A Docitas nasceu com o objetivo de resgatar o sabor autêntico dos doces feitos com tempo, paciência e paixão artesanal. O que começou em uma cozinha familiar logo se transformou em uma confeitaria dedicada a criar memórias e tornar os momentos do dia a dia mais doces e especiais.
+        </p>
+        <p style="font-size: 15px; color: #5a4b45; line-height: 1.7;">
+          Cada doce é preparado artesanalmente, com chocolate nobre, ingredientes selecionados e sem conservantes artificiais, garantindo uma experiência rica em sabor, textura e carinho em cada pedaço.
+        </p>
+      </div>
+
+      <div class="cart-items-card" style="margin-bottom: 32px;">
+        <h2 style="font-family: var(--font-heading); color: var(--color-chocolate-dark); font-size: 24px; margin-bottom: 14px;">Nosso Compromisso</h2>
+        <p style="font-size: 15px; color: #5a4b45; line-height: 1.7; margin-bottom: 20px;">
+          Valorizamos a produção consciente, a qualidade impecável dos nossos produtos e o atendimento acolhedor aos nossos clientes. Queremos que cada mordida transmita o afeto que colocamos em nosso trabalho diário.
+        </p>
+        <a href="index.html" class="btn-primary" style="padding: 12px 24px;">Ver Nossos Produtos</a>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <div class="footer-col">
+          <h4>Docitas Gourmet</h4>
+          <p>Doces artesanais pensados para encantar seus sentidos e colorir seus dias com mais carinho.</p>
+          <p>
+            Horário de Funcionamento:<br>
+            <time datetime="08:00">08:00</time> às <time datetime="19:00">19:00</time> (Segunda a Sábado)
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navegação</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="carrinho.html">Meu Carrinho</a></li>
+            <li><a href="perfil.html">Minha Conta</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Acesso</h4>
+          <ul class="footer-links">
+            <li><a href="sobre.html">Sobre Nós</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Novidades Doces</h4>
+          <p>Cadastre seu e-mail para receber cupons e lançamentos exclusivos:</p>
+          <form class="newsletter-form" id="newsletter-form" onsubmit="event.preventDefault(); this.reset();">
+            <input type="email" id="newsletter-email" class="newsletter-input" placeholder="Seu melhor e-mail" required>
+            <button type="submit" class="newsletter-btn">OK</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

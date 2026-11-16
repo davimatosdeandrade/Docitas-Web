@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
@@ -13,7 +13,7 @@
     <div class="container header-container">
 
       <a href="index.html" class="logo-area" aria-label="Página Inicial Docitas">
-        <div class="logo-badge">D</div>
+        <img src="imagens/logo.png" alt="Docitas Logo" class="logo-img">
         <div class="logo-text">DOCI<span>TAS</span></div>
       </a>
 
@@ -97,26 +97,35 @@
         <div class="footer-col">
           <h4>Docitas Gourmet</h4>
           <p>Doces artesanais pensados para encantar seus sentidos e colorir seus dias com mais carinho.</p>
+          <p>
+            Horário de Funcionamento:<br>
+            <time datetime="08:00">08:00</time> às <time datetime="19:00">19:00</time> (Segunda a Sábado)
+          </p>
         </div>
 
         <div class="footer-col">
           <h4>Navegação</h4>
           <ul class="footer-links">
-            <li><a href="index.html">Página Inicial</a></li>
+            <li><a href="index.html">Início</a></li>
             <li><a href="carrinho.html">Meu Carrinho</a></li>
+            <li><a href="perfil.html">Minha Conta</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h4>Acesso</h4>
           <ul class="footer-links">
-            <li><a href="login.html">Minha Conta</a></li>
+            <li><a href="sobre.html">Sobre Nós</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Docitas</h4>
-          <p>Feito com amor, açúcar e receitas tradicionais.</p>
+          <h4>Novidades Doces</h4>
+          <p>Cadastre seu e-mail para receber cupons e lançamentos exclusivos:</p>
+          <form class="newsletter-form" id="newsletter-form" onsubmit="event.preventDefault(); this.reset();">
+            <input type="email" id="newsletter-email" class="newsletter-input" placeholder="Seu melhor e-mail" required>
+            <button type="submit" class="newsletter-btn">OK</button>
+          </form>
         </div>
 
       </div>

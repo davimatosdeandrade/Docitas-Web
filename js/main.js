@@ -22,7 +22,7 @@ function obterUsuarioLogado() {
 
 function sincronizarCarrinho() {
   let usuario = obterUsuarioLogado();
-  if (!usuario) {
+  if (!usuario || usuario.tipo === "admin") {
     return [];
   }
 
@@ -96,18 +96,8 @@ function adicionarAoCarrinho(idProduto) {
     return;
   }
 
-  let produtos = obterProdutos();
-  let produtoSelecionado = null;
-
-  for (let i = 0; i < produtos.length; i++) {
-    if (produtos[i].id === idProduto) {
-      produtoSelecionado = produtos[i];
-      break;
-    }
-  }
-
-  if (!produtoSelecionado) {
-    alert("Produto não encontrado no LocalStorage!");
+  if (usuario.tipo === "admin") {
+    alert("Administradores não podem adicionar itens ao carrinho!");
     return;
   }
 
@@ -132,8 +122,6 @@ function adicionarAoCarrinho(idProduto) {
 
   salvarCarrinho(carrinho);
   atualizarContadorCarrinho();
-  alert(produtoSelecionado.nome + " foi adicionado ao seu carrinho!");
-  window.location.href = "carrinho.html";
 }
 
 function mostrarProdutos() {
@@ -158,7 +146,7 @@ function mostrarProdutos() {
     let precoFormatado = Number(p.preco).toFixed(2).replace(".", ",");
     let corFundo = p.cor || "#E9A98B";
     let destaque = p.destaque || "Doce Artesanal";
-    let imagemSrc = p.imagem || "img/doces/padrao.svg";
+    let imagemSrc = p.imagem;
 
     grid.innerHTML += `
       <article class="product-card">
@@ -169,17 +157,14 @@ function mostrarProdutos() {
         
         <div class="card-body">
           <div class="card-title-row">
-            <h3 class="product-title">${p.nome}</h3>
+            <h3 class="product-title" title="${p.nome}">${p.nome}</h3>
             <span class="product-price">R$ ${precoFormatado}</span>
           </div>
-          <p class="product-desc">${p.descricao}</p>
+          <p class="product-desc" title="${p.descricao}">${p.descricao}</p>
           
           <div class="card-footer">
             <button type="button" class="add-cart-btn" onclick="adicionarAoCarrinho(${p.id})">
-              Adicionar
-            </button>
-            <button type="button" class="circle-action-btn" onclick="adicionarAoCarrinho(${p.id})" title="Adicionar à sacola">
-              +
+              Adicionar à Sacola
             </button>
           </div>
         </div>

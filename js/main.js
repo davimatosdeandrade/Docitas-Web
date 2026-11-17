@@ -1,3 +1,12 @@
+function acessarConta() {
+  let usuario = localStorage.getItem("docitas_usuario_logado");
+  if (usuario) {
+    window.location.href = "perfil.html";
+  } else {
+    window.location.href = "login.html";
+  }
+}
+
 const CHAVE_PRODUTOS = "docitas_produtos";
 
 function obterProdutos() {
@@ -106,7 +115,9 @@ function adicionarAoCarrinho(idProduto) {
 
   for (let i = 0; i < carrinho.length; i++) {
     if (carrinho[i].idProduto === idProduto) {
-      carrinho[i].quantidade += 1;
+      if (carrinho[i].quantidade < 99) {
+        carrinho[i].quantidade += 1;
+      }
       itemJaExiste = true;
       break;
     }

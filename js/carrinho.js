@@ -1,3 +1,12 @@
+function acessarConta() {
+  let usuario = localStorage.getItem("docitas_usuario_logado");
+  if (usuario) {
+    window.location.href = "perfil.html";
+  } else {
+    window.location.href = "login.html";
+  }
+}
+
 const CHAVE_PRODUTOS = "docitas_produtos";
 
 let dadosUsuario = localStorage.getItem("docitas_usuario_logado");
@@ -172,9 +181,13 @@ function alterarQuantidade(idProduto, delta) {
 
   for (let i = 0; i < carrinho.length; i++) {
     if (carrinho[i].idProduto === idProduto) {
-      carrinho[i].quantidade += delta;
-      if (carrinho[i].quantidade <= 0) {
+      let novaQtd = carrinho[i].quantidade + delta;
+      if (novaQtd <= 0) {
         carrinho.splice(i, 1);
+      } else if (novaQtd > 99) {
+        carrinho[i].quantidade = 99;
+      } else {
+        carrinho[i].quantidade = novaQtd;
       }
       break;
     }

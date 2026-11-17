@@ -1,3 +1,12 @@
+function acessarConta() {
+  let usuario = localStorage.getItem("docitas_usuario_logado");
+  if (usuario) {
+    window.location.href = "perfil.html";
+  } else {
+    window.location.href = "login.html";
+  }
+}
+
 const CHAVE_PRODUTOS = "docitas_produtos";
 
 let dadosUsuario = localStorage.getItem("docitas_usuario_logado");
